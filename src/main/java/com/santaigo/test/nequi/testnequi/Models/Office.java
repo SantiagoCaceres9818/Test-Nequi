@@ -3,6 +3,8 @@ package com.santaigo.test.nequi.testnequi.Models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +26,7 @@ public class Office {
     @JoinColumn(name = "franquicia_id")
     private Franchise franchise;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "office", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products;
 
